@@ -34,18 +34,17 @@ export class ContentList {
     }
 
     processContent(index: number){
-        let item: Content = this._items[index]
-        console.log("test:");
+        let item = this._items[index]
         
         return `<html>
                     <div>
                         <p> 
-                            title: ${item.title}\n
-                            description: ${item.description}\n
-                            creator: ${item.creator}\n
-                            type: ${item.type!}
-                            imgURL: <img src="${item.imgURL}"</img>
+                            ${item.title}\n
+                            ${item.description}\n
+                            ${item.creator}\n
+                            ${item.type!}
                         </p>
+                        <img src="${item.imgURL}"</img>
                     </div>
                 </html>`
     }
