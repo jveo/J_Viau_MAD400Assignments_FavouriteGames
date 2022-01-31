@@ -29,22 +29,24 @@ export class ContentList {
 
     }
 
-    // numberOfItems(){
-    //     return this._items.length;
-    // }
+    numberOfItems(){
+        return this._items.length;
+    }
 
-    // processContent(index: number){
-    //     let item: Content = this.Items[index]
-    //     return `<html>
-    //                 <div>
-    //                     <p> 
-    //                         title: ${item.title}\n
-    //                         description: ${item.description}\n
-    //                         creator: ${item.creator}\n
-    //                         type: ${item.type!}
-    //                         imgURL: <img src="${item.imgURL}"</img>
-    //                     </p>
-    //                 </div>
-    //             </html>`
-    // }
+    processContent(index: number){
+        let item: Content = this._items[index]
+        console.log("test:");
+        
+        return `<html>
+                    <div>
+                        <p> 
+                            title: ${item.title}\n
+                            description: ${item.description}\n
+                            creator: ${item.creator}\n
+                            type: ${item.type!}
+                            imgURL: <img src="${item.imgURL}"</img>
+                        </p>
+                    </div>
+                </html>`
+    }
 }
