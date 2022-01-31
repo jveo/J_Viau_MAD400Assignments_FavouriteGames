@@ -1,4 +1,6 @@
+import { Content } from '@angular/compiler/src/render3/r3_ast';
 import { Component } from '@angular/core';
+import { ContentList } from './helper-files/content-list';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'J_Viau_FavouriteGames';
+
+
 }
+
+
