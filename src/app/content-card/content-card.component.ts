@@ -22,23 +22,23 @@ export class ContentCardComponent implements OnInit {
       tags: ["FPS", "Competitive"]
     })
 
-    this.myList = new ContentList({
-      id: 2,
-      title: "World Of Warcraft",
-      description: "MMORPG",
-      creator: "Blizzard",
-      imgURL: "https://upload.wikimedia.org/wikipedia/en/thumb/9/91/WoW_Box_Art1.jpg/220px-WoW_Box_Art1.jpg",
-      tags: ["MMO"]
-    })
+    // this.myList = new ContentList({
+    //   id: 2,
+    //   title: "World Of Warcraft",
+    //   description: "MMORPG",
+    //   creator: "Blizzard",
+    //   imgURL: "https://upload.wikimedia.org/wikipedia/en/thumb/9/91/WoW_Box_Art1.jpg/220px-WoW_Box_Art1.jpg",
+    //   tags: ["MMO"]
+    // })
 
-    this.myList = new ContentList({
-      id: 3,
-      title: "Old School RuneScape",
-      description: "MMORPG",
-      creator: "Jagex",
-      imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsMp21CIabjoE9hB1VQuxd_dovqij3niMmzg&usqp=CAU",
-      tags: ["MMO"]
-    })
+    // this.myList = new ContentList({
+    //   id: 3,
+    //   title: "Old School RuneScape",
+    //   description: "MMORPG",
+    //   creator: "Jagex",
+    //   imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsMp21CIabjoE9hB1VQuxd_dovqij3niMmzg&usqp=CAU",
+    //   tags: ["MMO"]
+    // })
 
   }
 

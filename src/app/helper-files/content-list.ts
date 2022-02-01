@@ -20,7 +20,7 @@ export class ContentList {
         this._items[0] = item
     }
 
-    get Items(): Content[]{
+    get items(): Content[]{
         return this._items;
     }
 
@@ -29,7 +29,7 @@ export class ContentList {
 
     }
 
-    numberOfItems(){
+    numberOfItems(): number {
         return this._items.length;
     }
 
@@ -38,12 +38,12 @@ export class ContentList {
         
         return `<html>
                     <div>
-                        <p> 
+
                             ${item.title}\n
                             ${item.description}\n
                             ${item.creator}\n
                             ${item.type!}
-                        </p>
+                        
                         <img src="${item.imgURL}"</img>
                     </div>
                 </html>`
