@@ -48,7 +48,7 @@ export class ContentList {
                     </div>
                     <p> tags: ${item.tags ? item.tags : ""}</p>
 
-                    <img src="${item.imgURL ? item.imgURL : "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"}" "</img>\n
+                    <img src="${item.imgURL ? item.imgURL : "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"}" width="300px" "</img>\n
 
 
                 </html>`
