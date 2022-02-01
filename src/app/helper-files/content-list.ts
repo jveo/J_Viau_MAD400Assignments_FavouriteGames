@@ -24,7 +24,6 @@ export class ContentList {
         return this._items;
     }
 
-    // from my understanding, to add to the private _items array we need to pass in a array of Content, which would be an object
     set items(newItem: Content[]){
         this._items = newItem
     }
@@ -47,9 +46,10 @@ export class ContentList {
                             <p>${item.creator}</p>\n
                             ${item.type ? item.type : ""}
                     </div>
+                    <p> tags: ${item.tags ? item.tags : ""}</p>
 
                     <img src="${item.imgURL ? item.imgURL : "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"}" "</img>\n
-                    <p> tags: ${item.tags ? item.tags : ""}</p>
+
 
                 </html>`
     }
