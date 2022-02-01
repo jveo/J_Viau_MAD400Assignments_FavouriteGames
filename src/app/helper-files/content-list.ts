@@ -24,9 +24,13 @@ export class ContentList {
         return this._items;
     }
 
+    // from my understanding, to add to the private _items array we need to pass in a array of Content, which would be an object
     set items(newItem: Content[]){
         this._items = newItem
+    }
 
+    addItem(item: Content){
+        this._items.push(item)
     }
 
     numberOfItems(): number {
@@ -38,14 +42,16 @@ export class ContentList {
         
         return `<html>
                     <div>
-
-                            ${item.title}\n
-                            ${item.description}\n
-                            ${item.creator}\n
-                            ${item.type!}
-                        
-                        <img src="${item.imgURL}"</img>
+                            <h3>${item.title ? item.title : ""}</h3>\n
+                            <p>${item.description}</p>\n
+                            <p>${item.creator}</p>\n
+                            ${item.type ? item.type : ""}
                     </div>
+
+                    <img src="${item.imgURL ? item.imgURL : "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"}" "</img>\n
+                    <p> tags: ${item.tags ? item.tags : ""}</p>
+
                 </html>`
     }
+
 }
