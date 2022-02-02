@@ -1,17 +1,10 @@
-<div>
-    <span [innerHTML]="myList.processContent(0)"></span>
+<div class="Card">
+    <header>{{content ? content.title : ""}}</header>
+    <p>{{content ? content.description : ""}}</p>
+    <p>{{content ? content.creator : ""}}</p>
+    <p>{{content ? content.type : ""}}</p>
+    <p>Tags: {{content ? content.tags : ""}}</p>
+    <img [src]="content ? content.imgURL : '' " (click)="displayId()" [alt]="content ? content.title: 'image'" width="200px"/>
+    <br>
+    <br>
 </div>
-
-<div>
-    <span [innerHTML]="myList.processContent(1)"></span>
-</div>
-
-<div>
-    <span [innerHTML]="myList.processContent(2)"></span>
-</div>
-
-{{ myList.items }}
-
-{{myList.numberOfItems()}}
-
-

@@ -1,0 +1,8 @@
+
+<div class="Cards-Content" *ngFor="let game of gamesList; index as i; first as first">
+
+    <div *ngIf="i <= 4">
+        <app-content-card [content]="game"></app-content-card>
+    </div>
+
+</div>  
