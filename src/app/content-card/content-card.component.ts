@@ -10,7 +10,7 @@ import { Content } from '../helper-files/content-interface';
 export class ContentCardComponent implements OnInit {
 
   @Input() content: Content | undefined
-
+  
   constructor() { 
 
   }
