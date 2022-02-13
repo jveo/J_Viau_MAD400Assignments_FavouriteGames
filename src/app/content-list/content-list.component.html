@@ -1,9 +1,12 @@
-                                                <!--POSSIBLE 'TYPES' TO TRY:
-                                                                Fps
-                                                                Fantasy
-                                                                Fighter
-                                                                
-                                                -->
+<!--POSSIBLE 'TYPES' TO TRY:
+Fps
+Fantasy
+Fighter
+-->
+
+<input  #genre placeholder="Search Game Type"/>
+<button (click)="doesExist(genre.value)">Search</button>
+
 <div class="Cards-Content" *ngFor="let game of (gamesList | filter:''); index as i; first as first" [ngClass]=" {first: first} ">
 
         <app-content-card [content]="game"></app-content-card>

@@ -3,6 +3,7 @@ import {
 } from '../helper-files/content-interface'
 import {
   Component,
+  Input,
   OnInit
 } from '@angular/core';
 
@@ -93,5 +94,17 @@ export class ContentListComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  doesExist(searchGenre?: String){
+    searchGenre = searchGenre?.toLowerCase()
+      if(this.gamesList.some(e => e.type?.toLowerCase() == searchGenre)){
+        alert(`Search for ${searchGenre} does exist`)
+      } else if(searchGenre === "") {
+        alert("invalid entry")
+      } else {
+        alert("not found")
+      }
+  }
+    
 
 }
