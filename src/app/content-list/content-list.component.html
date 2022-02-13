@@ -1,10 +1,29 @@
+                                                <!--POSSIBLE 'TYPES' TO TRY:
+                                                                Fps
+                                                                Fantasy
+                                                                Fighter
+                                                                
+                                                -->
+<div class="Cards-Content" *ngFor="let game of (gamesList | filter:''); index as i; first as first" [ngClass]=" {first: first} ">
 
-<div class="Cards-Content" *ngFor="let game of (gamesList | filter: 'Fighter'); index as i; first as first" [ngClass]=" {first: first} ">
+        <app-content-card [content]="game"></app-content-card>
+        
+</div>  
+
+<div class="Fantasy-Games" *ngFor="let game of (gamesList | filter:'Fantasy');" [ngStyle]="{'background-color': 'purple'}">
 
         <app-content-card [content]="game"></app-content-card>
 
 </div>  
 
-<!-- <div>
-        {{ gamesList | filter: "Fps"}}
-</div> -->
+<div class="Fps-Games" *ngFor="let game of (gamesList | filter:'Fps');" [ngStyle]="{'background-color': 'green'}">
+
+        <app-content-card [content]="game"></app-content-card>
+
+</div>  
+
+<div class="Fighter-Games" *ngFor="let game of (gamesList | filter:'Fighter');" [ngStyle]="{'background-color': 'red'}">
+
+        <app-content-card [content]="game"></app-content-card>
+
+</div>  
