@@ -20,8 +20,7 @@ export class ContentCardComponent implements OnInit {
   }
 
   displayId(): void{
-    console.log(this.content?.id);
-    
+    console.log(this.content?.id)
   }
 
 }

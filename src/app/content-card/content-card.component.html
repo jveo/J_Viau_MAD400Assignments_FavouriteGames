@@ -4,7 +4,7 @@
     <p>{{content ? content.creator : ""}}</p>
     <p>{{content ? content.type : ""}}</p>
     <p>Tags: {{content ? content.tags : ""}}</p>
-    <img [src]="content ? content.imgURL : '' " (click)="displayId()" [alt]="content ? content.title: 'image'" width="200px"/>
+    <img [src]="content ? content.imgURL : '' " (click)="displayId()" [alt]="content ? content.title : 'image'" width="200px"/>
     <br>
     <br>
 </div>
