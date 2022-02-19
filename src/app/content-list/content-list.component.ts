@@ -1,6 +1,4 @@
-import {
-  Content
-} from '../helper-files/content-interface'
+import { Content } from '../helper-files/content-interface'
 import {
   Component,
   Input,
@@ -24,7 +22,7 @@ export class ContentListComponent implements OnInit {
         description: "FPS Game",
         type: "Fps",
         creator: "Activision",
-        imgURL: "https://tpucdn.com/review/call-of-duty-modern-warfare-benchmark-test-performance-analysis/images/title.jpg",
+        imgURL: "",
         tags: ["FPS", "Competitive"]
       },
 
