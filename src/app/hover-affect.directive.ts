@@ -7,15 +7,12 @@ export class HoverAffectDirective {
 
   constructor(private element: ElementRef) { }
 
-  @HostListener('mouseover') hover(){
-    if(this.element.nativeElement.target){
-      this.element.nativeElement.style.textDecoration = "underline"
-      console.log(this.element);
-      
-    }
+  @HostListener('mouseover') enter(){
+    this.element.nativeElement.style.textDecoration = "underline"
+  }
+
+  @HostListener('mouseleave') leave(){
     this.element.nativeElement.style.textDecoration = "none"
-    console.log(this.element);
-    
   }
 
 }
