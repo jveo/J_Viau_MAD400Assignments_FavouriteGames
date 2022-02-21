@@ -3,11 +3,11 @@
     <header>{{content ? content.title : ""}}</header>
     <p>{{content ? content.description : ""}}</p>
     <p>{{content ? content.creator : ""}}</p>
-    <p appHoverAffect>{{ content ? content.type : ""}}</p>
+    <p appHoverAffect >{{ content ? content.type : ""}}</p>
     <p>Tags: {{content ? content.tags : ""}}</p>
     <!-- <img [src]="content ? content.imgURL : '' " (click)="displayId()" [alt]="content ? content.title : 'image'"/> -->
     <!--NG SWITCH-->
-    <div [ngSwitch]="content?.imgURL">
+    <div [ngSwitch]="content?.imgURL" (click)="displayId()">
         <img *ngSwitchCase="content?.imgURL" [src]="content?.imgURL"/>
         <img *ngSwitchCase="''" src="https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg"/>  
     </div>
