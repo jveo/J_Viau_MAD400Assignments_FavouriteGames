@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "generatecomponent": "ng g component",
+    "ng g c": "ng g component",
     "generatepipe": "ng g pipe",
     "generatedirective": "ng g directive"
   },  
