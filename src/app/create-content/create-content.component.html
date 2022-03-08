@@ -1,10 +1,30 @@
+    
+    <div>
+        <input #id type="number" placeholder="Id">
+    </div>
+    
+    <div>
+        <input #title placeholder="Title">
+    </div>
+    
+    <div>
+        <input #description placeholder="Description">
+    </div>
+    
+    <div>
+        <input #publisher placeholder="Publisher">
+    </div>
+    
+    <div>
+        <input #imgURL placeholder="Image URL">
+    </div>
+    
+    <div>
+        <input #genre placeholder="genre">
+    </div>
+        
+    <div>
+        <input #tags placeholder="tags">
+    </div>
 
-<input type="text">
-<input type="text">
-<input type="text">
-<input type="text">
-<input type="text">
-<input type="text">
-<input type="text">
-
-<button (click)="addContent()">Add</button>
+<button (click)="addGameContent(id.valueAsNumber, title.value, description.value, publisher.value, imgURL.value, genre.value, tags.value)">Add</button>

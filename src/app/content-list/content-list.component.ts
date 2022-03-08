@@ -104,5 +104,8 @@ export class ContentListComponent implements OnInit {
       }
   }
     
+  getGameContent($event: Content){
+    this.gamesList.unshift($event)
+  }
 
 }
