@@ -1,30 +1,31 @@
     
     <div>
-        <input #id type="number" placeholder="Id">
+        <input type="number" placeholder="Id" [(ngModel)]="newGame.id">
     </div>
     
     <div>
-        <input #title placeholder="Title">
+        <input placeholder="Title" [(ngModel)]="newGame.title">
     </div>
     
     <div>
-        <input #description placeholder="Description">
+        <input placeholder="Description" [(ngModel)]="newGame.description">
     </div>
     
     <div>
-        <input #publisher placeholder="Publisher">
+        <input placeholder="Publisher" [(ngModel)]="newGame.creator">
     </div>
     
     <div>
-        <input #imgURL placeholder="Image URL">
+        <input placeholder="Image URL" [(ngModel)]="newGame.imgURL">
     </div>
     
     <div>
-        <input #genre placeholder="genre">
+        <input placeholder="genre" [(ngModel)]="newGame.type">
     </div>
         
     <div>
-        <input #tags placeholder="tags">
+        <input placeholder="tags" [(ngModel)]="newGame.tags">
     </div>
-
-<button (click)="addGameContent(id.valueAsNumber, title.value, description.value, publisher.value, imgURL.value, genre.value, tags.value)">Add</button>
+<!-- id.valueAsNumber, title.value, description.value, publisher.value, imgURL.value, genre.value, tags.value -->
+<button (click)="addGameContent()">Add</button>
+<span>{{ errorMsg }}</span>

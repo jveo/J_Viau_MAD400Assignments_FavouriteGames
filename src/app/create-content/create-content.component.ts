@@ -9,53 +9,46 @@ import { Content } from '../helper-files/content-interface';
 })
 export class CreateContentComponent implements OnInit {
 
-  @Output() newGameEvent: EventEmitter<Content> = new EventEmitter<Content>()
-  newGame?: Content;
+  @Output() newGameEvent = new EventEmitter<Content>()
+  newGame: Content;
+  errorMsg: string = "";
 
-  constructor() { }
+  constructor() { 
+    this.newGame = {id: 0, title: '', description: '', creator: '', imgURL: ''}
+  }
 
   ngOnInit(): void {
     
   }
 
-  addGameContent(id: number, title: string, desc: string, creator: string, img: string, type: string, tags: string){
-    this.newGame = {
-      id: id,
-      title: title,
-      description: desc,
-      creator: creator,
-      imgURL: img,
-      type: type,
-      tags: tags.split(',')
-    }
-    console.log('added game(s)');
-    this.newGameEvent.emit(this.newGame)
-  }
-
   // addGameContent(id: number, title: string, desc: string, creator: string, img: string, type: string, tags: string){
-  //   return new Promise( (resolve, reject) => {
-  //     if(this.newGame){
-  //       this.newGame = {
-  //         id: id,
-  //         title: title,
-  //         description: desc,
-  //         creator: creator,
-  //         imgURL: img,
-  //         type: type,
-  //         tags: tags.split(',')
-  //       }
-  //       this.newGameEvent.emit(this.newGame)
-  //       resolve(this.isSuccessful(true, title))
-  //     } else {
-  //       reject(this.isSuccessful(false, title))
-  //     }
-  //   }).then((result) => {
-  //     console.log(result);
-  //   }).catch((err) => {
-  //     console.log(err);
-      
-  //   });
+  //   this.newGame = {
+  //     id: id,
+  //     title: title,
+  //     description: desc,
+  //     creator: creator,
+  //     imgURL: img,
+  //     type: type,
+  //     tags: tags.split(',')
+  //   }
+  //   console.log('added game(s)');
+  //   this.newGameEvent.emit(this.newGame)
   // }
+
+  addGameContent(){
+    return new Promise( (res, rej) => {
+      if(!this.newGame){
+        rej("bad entry")
+      }
+        res("successfully added new game")
+        this.newGameEvent.emit(this.newGame)
+    }).then((result) => {
+      this.newGame = {id: 0, title: '', description: '', creator: '', imgURL: ''}
+    }).catch((err) => {
+      this.errorMsg = err
+    });
+  }
+  
 
 
   isSuccessful(bool: Boolean, title: string){return bool ? console.log(`Successfully added New Game: ${title}`) : console.log(`Failed to add: ${title}`);}
