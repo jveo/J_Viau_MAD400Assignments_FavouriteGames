@@ -9,7 +9,8 @@
     "test": "ng test",
     "ng g c": "ng g component",
     "generatepipe": "ng g pipe",
-    "generatedirective": "ng g directive"
+    "generatedirective": "ng g directive",
+    "g s": "ng generate service"
   },  
   "private": true,
   "dependencies": {

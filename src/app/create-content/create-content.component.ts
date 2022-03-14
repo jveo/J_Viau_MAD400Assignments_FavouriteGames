@@ -21,20 +21,6 @@ export class CreateContentComponent implements OnInit {
     
   }
 
-  // addGameContent(id: number, title: string, desc: string, creator: string, img: string, type: string, tags: string){
-  //   this.newGame = {
-  //     id: id,
-  //     title: title,
-  //     description: desc,
-  //     creator: creator,
-  //     imgURL: img,
-  //     type: type,
-  //     tags: tags.split(',')
-  //   }
-  //   console.log('added game(s)');
-  //   this.newGameEvent.emit(this.newGame)
-  // }
-
   addGameContent(){
     return new Promise( (res, rej) => {
       if(!this.newGame){

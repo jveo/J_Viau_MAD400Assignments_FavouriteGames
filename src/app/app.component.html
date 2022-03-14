@@ -3,5 +3,11 @@
 </div>
 
 <div>
+  <app-app-messages></app-app-messages>
+
+  <app-content-list *ngFor="let game of gamesList">
+    <span> {{game}}</span>
+  </app-content-list>
+
   <app-content-list></app-content-list>
 </div>
