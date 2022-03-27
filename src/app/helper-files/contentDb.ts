@@ -1,4 +1,4 @@
-export let gamesList = [{
+export let CONTENT = [{
     id: 1,
     title: "Call Of Duty",
     description: "FPS Game",

@@ -1,0 +1,32 @@
+<div>
+    ID (ONLY FOR UPDATING): <input #id type="number">
+</div>
+<div>
+    <input type="text" placeholder="Title" #title>
+</div>
+
+<div>
+    <input type="text" placeholder="Creator" #creator>
+</div>
+
+<div>
+    <input type="text" placeholder="Description" #desc>
+</div>
+
+<div>
+    <input type="text" placeholder="Image URL" #img>
+</div>
+
+<div>
+    <input type="text" placeholder="type" #type>
+</div>
+
+<div>
+    <input type="text" placeholder="tags" #tags>
+</div>
+
+<div>
+    <button type="submit" (click)="addContent(title.value, creator.value, desc.value, img.value, type.value, tags.value)">
+    Add</button>
+    <button type="submit" (click)="updateContent(id.value, title.value, creator.value, desc.value, img.value, type.value, tags.value)">Update</button>
+</div>

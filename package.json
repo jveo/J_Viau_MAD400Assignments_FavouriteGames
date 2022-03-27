@@ -7,10 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "ng g c": "ng g component",
-    "generatepipe": "ng g pipe",
-    "generatedirective": "ng g directive",
-    "g s": "ng generate service"
+    "gc": "ng g component",
+    "gp": "ng g pipe",
+    "gd": "ng g directive",
+    "gs": "ng generate service"
   },  
   "private": true,
   "dependencies": {
@@ -22,6 +22,7 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "angular-in-memory-web-api": "^0.13.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

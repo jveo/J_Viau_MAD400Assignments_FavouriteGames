@@ -4,13 +4,9 @@ Fantasy
 Fighter
 -->
 
-<app-create-content (newGameEvent)="getGameContent($event)">
+<app-modify-content (newGameEvent)="addContentToList($event)" (updateGameEvent)="updateContentInList($event)"></app-modify-content>
 
-</app-create-content>
-
-<input  #genre placeholder="Search Game Type"/>
-<button (click)="doesExist(genre.value)">Search</button>
-
+<!-- Main Content start -->
 <div class="Cards-Content" *ngFor="let game of (gamesList | filter:''); index as i; first as first" [ngClass]=" {first: first} ">
 
         <app-content-card [content]="game"></app-content-card>
@@ -34,3 +30,4 @@ Fighter
         <app-content-card [content]="game"></app-content-card>
 
 </div>  
+<!-- end -->

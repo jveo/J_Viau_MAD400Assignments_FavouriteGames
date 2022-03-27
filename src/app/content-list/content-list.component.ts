@@ -14,26 +14,36 @@ export class ContentListComponent implements OnInit {
 
   constructor(private GameService: GameServiceService) {
     this.gamesList = []
-  }
+  } 
+  
 
   ngOnInit(): void {
-    this.GameService.getGamesObservable().subscribe(games => this.gamesList = games)
+    this.getContentFromServer()
   }
 
-  doesExist(searchGenre?: String){
-    searchGenre = searchGenre?.toLowerCase()
-      if(this.gamesList.some(e => e.type?.toLowerCase() == searchGenre)){
-        alert(`Search for ${searchGenre} does exist`)
-      } else if(searchGenre === "") {
-        alert("invalid entry")
-      } else {
-        alert("not found")
-      }
+  getContentFromServer(): void{
+    this.GameService.getContent().subscribe( newGamesFromServer => {
+      console.log("recevied content from the server", newGamesFromServer);
+      this.gamesList = newGamesFromServer
+    })
   }
+
+  addContentToList(game: Content): void {
+    this.GameService.addContent(game).subscribe(newGameFromServer => {
+      this.gamesList.push(newGameFromServer)
+      console.log("addContentToList function works");
+    });
+  }
+
+  updateContentInList(contentItem: Content): void {
+    this.GameService.updateContent(contentItem).subscribe(() => {
+      console.log("Content updated successfully")
+      this.getContentFromServer();
+    });
+  }
+
+
     
-  getGameContent($event: Content){
-    this.gamesList.unshift($event)
-  }
 
   // getContent(): Observable<Content> {
   //   return of(this.GameService.getGameById(1))
