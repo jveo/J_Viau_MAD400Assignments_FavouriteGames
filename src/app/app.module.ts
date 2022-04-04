@@ -12,6 +12,13 @@ import { ModifyContentComponent } from './modify-content/modify-content.componen
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
+
+
 
 @NgModule({
   declarations: [
@@ -21,7 +28,8 @@ import { InMemoryDataService } from './services/in-memory-data.service';
     FilterPipe,
     HoverAffectDirective,
     AppMessagesComponent,
-    ModifyContentComponent
+    ModifyContentComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -32,8 +40,13 @@ import { InMemoryDataService } from './services/in-memory-data.service';
       dataEncapsulation: false,
       delay: 3000
     }),
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [],
+  entryComponents: [DialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

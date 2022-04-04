@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { Content } from '../helper-files/content-interface'
-import { HttpHeaders } from '@angular/common/http';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog'
 
 @Component({
   selector: 'app-modify-content',
@@ -11,20 +11,16 @@ export class ModifyContentComponent implements OnInit {
 
   @Output() newGameEvent: EventEmitter<Content> = new EventEmitter<Content>();
   @Output() updateGameEvent: EventEmitter<Content> = new EventEmitter<Content>();
-  newGame?: Content;
+  newGame: Content;
+  isOpen: Boolean = false;
 
-  private headerOptions = {
-    headers: new HttpHeaders({
-      'content-type': 'application.json'
-    })
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Content, public dialog: MatDialog) {
+      this.newGame = {title: "", description: "", creator: "", imgURL: "", type: "", tags: []}
+      this.addContent(data.title, data.description, data.creator, data.imgURL, data.type)
   }
 
-  constructor() {}
 
   ngOnInit(): void {}
-
-
-
 
   addContent(title: string, description: string, creator: string, imgURL: string, type?: string, tags?: string){
     if(title !== '' || description !== '' || creator !== '' || imgURL !== '' || type !== '' || tags){
@@ -36,12 +32,15 @@ export class ModifyContentComponent implements OnInit {
         type: type ? type : '',
         tags: tags?.split(",")
       }
+      
       console.log("successfully added new game, this.newGame");
+      console.log(this.newGame);
       this.newGameEvent.emit(this.newGame)
- 
+      this.clear()
     } else { console.log("incomplete fields") }
     
   }
+  
 
   updateContent(id: string, title: string, description: string, creator: string, imgURL: string, type?: string, tags?: string){
     if(title !== '' || description !== '' || creator !== '' || imgURL !== '' || type !== '' || tags){
@@ -60,5 +59,11 @@ export class ModifyContentComponent implements OnInit {
     } else { console.log("incomplete fields") }
     
   }
-  
+
+
+  clear(){
+    this.newGame = {title: "", description: "", creator: "", imgURL: "", type: "", tags: []}
+  }
+
+
 }

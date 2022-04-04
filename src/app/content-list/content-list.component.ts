@@ -2,6 +2,9 @@ import { Content } from '../helper-files/content-interface'
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { GameServiceService } from '../services/game-service.service';
 import { Observable, of } from 'rxjs';
+import { ModifyContentComponent } from '../modify-content/modify-content.component';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-content-list',
@@ -12,7 +15,7 @@ export class ContentListComponent implements OnInit {
 
   gamesList: Content[]
 
-  constructor(private GameService: GameServiceService) {
+  constructor(private GameService: GameServiceService, public dialog: MatDialog) {
     this.gamesList = []
   } 
   
@@ -30,7 +33,7 @@ export class ContentListComponent implements OnInit {
 
   addContentToList(game: Content): void {
     this.GameService.addContent(game).subscribe(newGameFromServer => {
-      this.gamesList.push(newGameFromServer)
+      this.gamesList.unshift(newGameFromServer)
       console.log("addContentToList function works");
     });
   }

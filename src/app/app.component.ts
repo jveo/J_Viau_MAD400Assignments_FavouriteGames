@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Content } from './helper-files/content-interface'
 import { GameServiceService } from './services/game-service.service';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
