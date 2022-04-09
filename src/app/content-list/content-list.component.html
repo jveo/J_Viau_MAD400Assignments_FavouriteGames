@@ -3,8 +3,8 @@ Fps
 Fantasy
 Fighter
 -->
-<app-dialog (newGameEvent)="addContentToList($event)"></app-dialog>
-<!-- <app-modify-content (newGameEvent)="addContentToList($event)" (updateGameEvent)="updateContentInList($event)"></app-modify-content> -->
+<!-- <app-dialog (newGameEvent)="addContentToList($event)"></app-dialog> -->
+<app-modify-content (newGameEvent)="addContentToList($event)"></app-modify-content>
 <!-- Main Content start -->
 <div class="Cards-Content" *ngFor="let game of (gamesList | filter:''); index as i; first as first" [ngClass]=" {first: first} ">
 

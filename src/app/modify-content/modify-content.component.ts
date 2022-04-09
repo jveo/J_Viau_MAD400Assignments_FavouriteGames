@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { Content } from '../helper-files/content-interface'
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { GameServiceService } from '../services/game-service.service';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-modify-content',
@@ -12,15 +14,35 @@ export class ModifyContentComponent implements OnInit {
   @Output() newGameEvent: EventEmitter<Content> = new EventEmitter<Content>();
   @Output() updateGameEvent: EventEmitter<Content> = new EventEmitter<Content>();
   newGame: Content;
-  isOpen: Boolean = false;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Content, public dialog: MatDialog) {
+  constructor(private dialog: MatDialog) {
       this.newGame = {title: "", description: "", creator: "", imgURL: "", type: "", tags: []}
-      this.addContent(data.title, data.description, data.creator, data.imgURL, data.type)
   }
 
 
   ngOnInit(): void {}
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      disableClose: false,
+      width: '250px',
+      height: '350px',
+      data: {
+        title: this.newGame.title,
+        creator: this.newGame.creator,
+        desc: this.newGame.description,
+        type: this.newGame.type,
+        tags: this.newGame.tags
+      }
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+      this.newGame = result;
+      console.log(this.newGame);
+      this.newGameEvent.emit(this.newGame)
+    })
+  }
 
   addContent(title: string, description: string, creator: string, imgURL: string, type?: string, tags?: string){
     if(title !== '' || description !== '' || creator !== '' || imgURL !== '' || type !== '' || tags){
