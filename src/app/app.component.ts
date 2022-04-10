@@ -11,11 +11,10 @@ import { GameServiceService } from './services/game-service.service';
   providers: [GameServiceService]
 })
 export class AppComponent {
+  
   title = 'J_Viau_FavouriteGames';
 
-  gamesList: Content[] = []
-
-  constructor(public gameService: GameServiceService) {
+  constructor() {
     
   }
 

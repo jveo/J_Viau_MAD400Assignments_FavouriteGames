@@ -12,7 +12,6 @@ import { DialogComponent } from '../dialog/dialog.component';
 export class ModifyContentComponent implements OnInit {
 
   @Output() newGameEvent: EventEmitter<Content> = new EventEmitter<Content>();
-  @Output() updateGameEvent: EventEmitter<Content> = new EventEmitter<Content>();
   newGame: Content;
 
   constructor(private dialog: MatDialog) {
@@ -37,50 +36,16 @@ export class ModifyContentComponent implements OnInit {
     })
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
-      this.newGame = result;
-      console.log(this.newGame);
-      this.newGameEvent.emit(this.newGame)
+      console.log('The dialog was closed, results are: ', result);
+      let urlRegex = '(https?:\/\/.*\.(?:png|jpg))';
+      if(!result.imgURL.match(urlRegex)){
+        result.imgURL = 'https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg'
+      } 
+      this.newGameEvent.emit(result)
     })
   }
 
-  addContent(title: string, description: string, creator: string, imgURL: string, type?: string, tags?: string){
-    if(title !== '' || description !== '' || creator !== '' || imgURL !== '' || type !== '' || tags){
-      this.newGame = {
-        title: title,
-        description: description,
-        creator: creator,
-        imgURL: imgURL,
-        type: type ? type : '',
-        tags: tags?.split(",")
-      }
-      
-      console.log("successfully added new game, this.newGame");
-      console.log(this.newGame);
-      this.newGameEvent.emit(this.newGame)
-      this.clear()
-    } else { console.log("incomplete fields") }
-    
-  }
   
-
-  updateContent(id: string, title: string, description: string, creator: string, imgURL: string, type?: string, tags?: string){
-    if(title !== '' || description !== '' || creator !== '' || imgURL !== '' || type !== '' || tags){
-      this.newGame = {
-        id: parseInt(id),
-        title: title,
-        description: description,
-        creator: creator,
-        imgURL: imgURL,
-        type: type ? type : '',
-        tags: tags?.split(",")
-      }
-      this.updateGameEvent.emit(this.newGame)
-      console.log("successfully added new game, this.newGame");
-  
-    } else { console.log("incomplete fields") }
-    
-  }
 
 
   clear(){

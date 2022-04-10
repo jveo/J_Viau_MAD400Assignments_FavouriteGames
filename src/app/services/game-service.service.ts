@@ -33,15 +33,15 @@ export class GameServiceService {
     return updateHttp 
   }
 
-  // getGameById(id: number): Observable<Content>{
-  //   this.messageService.add(`Content Item at id: ${id}`)
-  //   return of(CONTENT[id])
-  // }
+  getGameById(id: number): Observable<Content>{
+    this.messageService.add(`Content Item at id: ${id}`)
+    return of(CONTENT[id])
+  }
 
-  // getGamesObservable(): Observable<Content[]>{
-  //   this.messageService.add("Content array loaded!")
-  //   return of(CONTENT)
-  // }
+  getGamesObservable(): Observable<Content[]>{
+    this.messageService.add("Content array loaded!")
+    return of(CONTENT)
+  }
 
 
 }

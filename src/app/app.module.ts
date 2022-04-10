@@ -17,6 +17,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
+import { ContentDetailComponent } from './content-detail/content-detail.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -29,7 +31,9 @@ import { DialogComponent } from './dialog/dialog.component';
     HoverAffectDirective,
     AppMessagesComponent,
     ModifyContentComponent,
-    DialogComponent
+    DialogComponent,
+    ContentDetailComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,7 @@ import { DialogComponent } from './dialog/dialog.component';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
-      delay: 3000
+      delay: 500
     }),
     BrowserAnimationsModule,
     MatButtonModule,
